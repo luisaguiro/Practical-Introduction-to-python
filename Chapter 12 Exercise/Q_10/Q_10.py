@@ -191,7 +191,7 @@ for words in str_data:
                 #print(words)
            pass
 
-#u
+#u This answer is wrong, i try with another procedure. Let me share it
 vowel_u =["a","e","i","o","u"]
 count_u = 0
 for wordsi in str_data:
@@ -203,10 +203,42 @@ for wordsi in str_data:
             if count_u >= 9:
                #print(wordsi)
                 pass
+            
+ #u: correct version
+def letter(word: str) -> dict: # this function is necessary in order to count the vowels
+    
+    vowel = ['a', 'e', 'i', 'o', 'u']
+    
+    word = word.lower()
+    counter = {}.fromkeys(vowel, 0)
+    
+    for l in word:
+        for v in vowel:
+            if v in l:                
+                counter[l] += 1
+        
+    return counter
+
+def nine_vowels(sample: list): # This is the function to count the frequence of vowels in every word
+    
+    word_nine = []
+    
+    for word in sample:
+        counter = 0
+        
+        d = letter(word)
+        counter = d['a'] + d['e'] + d['i'] + d['o'] + d['u']
+        
+        if counter >= 9:
+            word_nine.append(word)
+            
+    return word_nine
+# EXAMPLE
+
+word_nine(str_data) # this should give you the correct words
+
+
 #v
-
-
-
 for word in str_data:
     if  "a" in word and "b" in word and "c" in word and "d" in word and "e" in word and "f" in word:
          #print(word)
